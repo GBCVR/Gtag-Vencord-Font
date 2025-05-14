@@ -1,0 +1,131 @@
+/**
+ * @name Gorilla Tag THEME
+ * @author Cam
+ * @version 1.0.0
+ * @description A Gorilla Tag-inspired theme for Discord (Vencord) with Utopium font and jungle vibes.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Utopium&display=swap');
+
+/* === CUSTOM COLORS & SETTINGS === */
+:root,
+.visual-refresh,
+.visual-refresh.theme-dark {
+  /* Colors */
+  --rgb-highlight: 77, 184, 255;
+  --rgb-background: 13, 15, 14;
+  --rgb-text: 225, 255, 225;
+  --rgb-muted-text: 149, 195, 170;
+  --rgb-accent: 31, 64, 55;
+  --rgb-hover: 99, 212, 113;
+
+  /* Discord status colors */
+  --rgb-online-color: 57, 255, 20;
+  --rgb-afk-color: 255, 255, 102;
+  --rgb-dnd-color: 255, 51, 51;
+  --rgb-streaming-color: 150, 50, 255;
+
+  /* UI Transitions */
+  --transition-time: 0.25s;
+
+  /* Custom Font */
+  --custom-font-family: 'Utopium', sans-serif;
+
+  /* Background image (replace if you want) */
+  --background-image: url('blob:https://wallpapers.com/32d62760-f435-4998-baca-0293231fb06b');
+  --background-position: center;
+  --background-size: cover;
+  --background-blur: 4px;
+  --background-brightness: 100%;
+
+  /* Custom Title (Optional) */
+  --custom-title-text: "Gorilla Tag Terminal"; /* Set this to "" to hide */
+  --custom-title-font-size: 18px;
+  --custom-title-font-weight: bold;
+  --custom-title-margin-top: 10px;
+  --custom-title-margin-left: 10px;
+}
+
+/* === BASE STYLING === */
+* {
+  font-family: var(--custom-font-family) !important;
+}
+
+body {
+  background-image: var(--background-image);
+  background-size: var(--background-size);
+  background-position: var(--background-position);
+  background-attachment: fixed;
+  filter: brightness(var(--background-brightness));
+}
+
+.theme-dark .chatContent,
+.theme-dark .container-2cd8Mz,
+.theme-dark .container-1eFtFS,
+.theme-dark .sidebar-2K8pFh,
+.theme-dark .membersWrap-3NUR2t {
+  background-color: rgba(var(--rgb-background), 0.85) !important;
+  backdrop-filter: blur(var(--background-blur));
+}
+
+.theme-dark .messageContent-2t3eCI {
+  color: rgb(var(--rgb-text)) !important;
+  font-size: 15px;
+}
+
+.theme-dark .channelTextArea-1FufC0,
+.theme-dark .channelTextArea-1VQBuV {
+  background-color: rgba(var(--rgb-accent), 0.5);
+  border-radius: 8px;
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--rgb-highlight));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* === STATUS COLORS === */
+.status-online {
+  color: rgb(var(--rgb-online-color)) !important;
+}
+.status-idle {
+  color: rgb(var(--rgb-afk-color)) !important;
+}
+.status-dnd {
+  color: rgb(var(--rgb-dnd-color)) !important;
+}
+.status-streaming {
+  color: rgb(var(--rgb-streaming-color)) !important;
+}
+
+/* === BUTTON ANIMATION (Monkey Bounce) === */
+@keyframes monkeBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+button, .button-38aScr {
+  animation: monkeBounce 4s infinite ease-in-out;
+}
+
+/* === CUSTOM TITLE === */
+@media only screen and (min-width: 0px) {
+  body::before {
+    content: var(--custom-title-text);
+    position: absolute;
+    top: var(--custom-title-margin-top);
+    left: var(--custom-title-margin-left);
+    font-size: var(--custom-title-font-size);
+    font-weight: var(--custom-title-font-weight);
+    color: rgb(var(--rgb-highlight));
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
